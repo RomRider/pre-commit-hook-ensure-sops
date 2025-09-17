@@ -26,7 +26,7 @@ def validate_enc(item):
     bool, number, etc) also makes the file invalid except an empty
     string which would pass the encryption check.
     """
-    
+
     if isinstance(item, str):
         if item == "" or item.startswith('ENC['):
             return True
@@ -50,7 +50,7 @@ def check_file(filename, args):
     # .yaml, but json otherwise
     # We also leverage the _load_all function if the user specifies to allow muliple documents
     # in each individual YAML file
-    if filename.endswith('.yaml'):
+    if filename.endswith('.yaml', '.yml'):
         if args.allow_multiple_documents:
             loader_func = _load_all
         else:
